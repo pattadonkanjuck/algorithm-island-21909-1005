@@ -27,6 +27,9 @@ window/size/window_width_override=1200
 window/size/window_height_override=800
 window/stretch/mode="canvas_items"
 
+[gui]
+theme/custom="res://assets/fonts/thai_theme.tres"
+
 [input]
 
 move_up={
