@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_world"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_player"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape_player"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="Boundary_horizontal"]
+size = Vector2(1600, 32)
+
+[sub_resource type="RectangleShape2D" id="Boundary_vertical"]
+size = Vector2(32, 960)
+
+[sub_resource type="RectangleShape2D" id="Gate_shape"]
+size = Vector2(30, 68)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_world")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(472, 332)
+script = ExtResource("2_player")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+limit_left = 0
+limit_top = 0
+limit_right = 1600
+limit_bottom = 960
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape_player")
+
+[node name="BoundaryTop" type="StaticBody2D" parent="."]
+position = Vector2(800, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryTop"]
+shape = SubResource("Boundary_horizontal")
+
+[node name="BoundaryBottom" type="StaticBody2D" parent="."]
+position = Vector2(800, 976)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryBottom"]
+shape = SubResource("Boundary_horizontal")
+
+[node name="BoundaryLeft" type="StaticBody2D" parent="."]
+position = Vector2(-16, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryLeft"]
+shape = SubResource("Boundary_vertical")
+
+[node name="BoundaryRight" type="StaticBody2D" parent="."]
+position = Vector2(1616, 480)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoundaryRight"]
+shape = SubResource("Boundary_vertical")
+
+[node name="Gate" type="StaticBody2D" parent="."]
+position = Vector2(1329, 462)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gate"]
+shape = SubResource("Gate_shape")
+
