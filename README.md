@@ -29,7 +29,7 @@
 
 โปรเจกต์มี Web export preset ใน `export_presets.cfg` และ GitHub Actions workflow ใน `.github/workflows/deploy-pages.yml` เมื่อ push ไป branch `main` workflow จะติดตั้ง Godot 4.7.2 พร้อม export templates, export เกม และเผยแพร่ไป GitHub Pages อัตโนมัติ
 
-หลังสร้าง repository ให้ไปที่ **Settings → Pages** แล้วเลือก **GitHub Actions** เป็น Build and deployment source จากนั้น workflow จะ deploy เมื่อ push ไป `main` สำเร็จ
+ตั้งค่า **Settings → Pages → Source** เป็น **GitHub Actions** แล้ว (ครั้งแรก) เมื่อ push ไป `main` workflow จะ export เกมและ deploy ไป GitHub Pages อัตโนมัติ
 
 ## โครงสร้าง
 
